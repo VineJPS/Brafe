@@ -1,0 +1,203 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Georgia, serif;
+    color: #252525;
+    background: #e7e4d8;
+}
+ul{
+    list-style: none;
+}
+img{
+    display: block;
+    max-width: 100%;
+}
+a{
+    text-decoration: none;
+}
+
+/*Header*/
+.header{
+    background: #d6d3c3;
+    padding: 30px;
+    display: flex;
+}
+.header-logo{
+    flex: 1;
+}
+.header-menu ul{
+    display: flex;
+}
+.header-menu  li a{
+    color: #252525;
+    font-size: 1.25em;
+    padding: 0 10px;
+}
+.header-menu li:first-child a{
+    padding-left: 0px;
+}
+
+/*Main*/
+.main-container{
+    display: flex;
+}
+
+/*Side-nav*/
+.side-nav{
+    background: #252525;
+    flex: 1;
+    max-width: 300px;
+    margin-right: 10px ;
+}
+
+.side-nav li a{ 
+    display: block;
+    color: #fff;
+    font-size: 1.125em;
+    border-bottom: 2px solid #484846; /* Bordinha branca*/
+    padding: 20px;
+}
+/*icones*/
+.side-nav li a::before{
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    margin-right: 15px;
+    position: relative;
+    background-image: url('../img/icones.png');
+
+}
+.nav-contabilidade::before{
+    background-position: 0 0;
+}
+.nav-produtos::before{
+    background-position: 0 -24px ;/*!important , comandinho *//*Corte, no caso o tamnho do icone 'Height 24px' e Posicionamento. ex center center.*/
+}
+.nav-paginas::before{
+    background-position: 0 calc(-24px * 2);
+}
+.nav-plugins::before{
+    background-position: 0 calc(-24px * 3);
+}
+.nav-formularios::before{
+    background-position: 0 calc(-24px * 4);
+}
+.nav-hospedagens::before{
+    background-position: 0 calc(-24px * 5);
+}
+
+/*Produtos*/
+.produtos{
+    flex: 1;
+    padding: 20px 10px;
+}
+.produtos header{
+    display: flex;
+}
+.produtos h1{
+    font-size: 2.25em;
+    flex-grow: 1;
+    margin-right: 20px;
+}
+.adicionar-produtos{  /*Botão*/
+    background: #c17139;
+    color: #e7e4d8;
+    font-size: 1.125em;
+    font-family: Courier, monospace;
+    text-transform: uppercase;
+    padding: 15px 20px;
+    border-radius: 4px;
+    text-align: center; 
+}
+.produtos-item{      /*Quadradinho com conteudo*/
+    background: #fff;
+    box-shadow: 0/*eixo x*/ 1px/*eixo y*/ 3px/*desfoque*/ 0/*O quanto a sombra espande*/ rgba(0, 0, 0, 0.35); /*Cor da sombra*/
+    margin-top: 20px;
+    position: relative;
+    display: flex;
+}
+.produtos-item a{
+    width: 24px;
+    height: 24px;
+    overflow: hidden;
+    text-indent: -200px;
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    background: url('../img/edit.svg') no-repeat;
+}
+.produtos-item a:hover{
+    background: url('../img/edit-hover.svg') no-repeat;
+}
+.produtos-item img{
+    align-self: flex-start;
+}
+.produtos-item ul{
+    padding: 0 20px;
+}
+.produtos-item li{
+    padding: 10px 0;
+    font-size: 1.125em;
+    font-family: Courier, monospace;
+    border-bottom: 1px solid #e7e4d8; /*Risco entre linhas*/
+}
+.produtos-item li:last-child{
+    border: none;
+}
+.produtos-item span{
+    font-weight: bold;
+    width: 70px;
+    display: inline-block;
+}
+
+/*Footer*/
+.footer{
+    background: #d6ddc3;
+    text-align: center;
+    padding: 45px 0;
+    font-size: 1.25em;
+    line-height: 1.25em;
+}
+
+/*Midia Query - Tamanho da tela para cell por ex*/
+@media (max-width: 768px){
+    .header{
+        flex-direction: column; /*Menu vai pra baixo do logo, F12, meche na largura*/
+}
+.header-menu{
+    margin-top: 10px; /*Desgruda o menu da logo*/
+}
+.main-container{
+    flex-direction: column;
+}
+.side-nav{
+    margin: 10px;
+    background: none;
+    max-width: 100%;
+}
+.side-nav ul{
+    display: flex; /*Joga os itens na mesma linha*/
+    flex-wrap: wrap;
+}
+.side-nav  li{
+    margin-bottom: 10px;
+    margin-right: 10px;
+}
+.side-nav li a{
+    overflow: hidden; /*Quando o item sai do lugar*/
+    width: 44px;
+    height: 44px;
+    border: none;
+    padding: 10px;
+    color: #252525;
+    background: #252525;
+    border-radius: 4px;
+}
+.produtos header, .produtos-item{
+    flex-direction: column;
+}
+}
